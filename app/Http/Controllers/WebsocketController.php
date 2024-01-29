@@ -15,7 +15,7 @@ class WebsocketController extends Controller
     public function chat(Request $request){
         $userName = $request->input('user_name');
         $receiverName = $request->input('receiver_name');
-        if((empty($userName)  && empty($receiverName))){
+        if((empty($userName)  && empty($receiverName)) || ($userName==$receiverName)){
             return view('home');
         }
         return view('chat',compact('userName','receiverName'));
